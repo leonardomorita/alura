@@ -1,11 +1,11 @@
 <?php
 
 use Alura\Pdo\Domain\Model\Student;
+use Alura\Pdo\Infrastructure\Persistence\ConnectionCreator;
 
 require_once 'vendor/autoload.php';
 
-$databaseAbsolutePath = __DIR__ . '/database.sqlite';
-$pdo = new PDO('sqlite:' . $databaseAbsolutePath);
+$pdo = ConnectionCreator::createConnection();
 
 $pdoStatement = $pdo->query('SELECT * FROM students;');
 // Retorna os registros encontrados dentro de um array que contém com índice com nomes (associativo) e números (índice) ao executar o comando
