@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: news-portal-service
+spec:
+    type: NodePort
+    ports:
+        # port -> porta que vai receber requisição
+        # targetPort -> porta onde vai ser encaminhado requisição
+        # nodePort -> porta onde vai dar acesso externo
+        - port: 80
+          nodePort: 30000
+    selector:
+        app: news-portal
