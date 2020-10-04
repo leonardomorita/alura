@@ -3,7 +3,7 @@ kind: Pod
 metadata:
     name: news-database
     labels:
-        name: news-database
+      app: news-database
 spec:
   containers:
     - name: news-database-container
