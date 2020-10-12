@@ -10,6 +10,7 @@ class ConnectionCreator
     {
         $databaseAbsolutePath = __DIR__ . '/../../../database.sqlite';
         $pdo = new PDO('sqlite:' . $databaseAbsolutePath);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         return $pdo;
     }
