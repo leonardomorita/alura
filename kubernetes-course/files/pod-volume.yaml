@@ -17,5 +17,8 @@ spec:
   volumes:
     - name: first-volume
       hostPath:
-        path: /home/first-volume
+        # Usar no 'minikube'
+          # path: /home/first-volume
+        # Docker for PC
+        path: /Users/leonardomorita/first-volume
         type: Directory
