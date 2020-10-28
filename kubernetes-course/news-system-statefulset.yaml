@@ -22,14 +22,14 @@ spec:
             - name: images
               mountPath: /var/www/html/uploads
             - name: session
-              mount: /tmp
+              mountPath: /tmp
       volumes:
         - name: images
-          persistenceVolumeClaim:
-            claimName: images-persistence-volume-claim
+          persistentVolumeClaim:
+            claimName: images-persistent-volume-claim
         - name: session
-          persistenceVolumeClaim:
-            claimName: session-persistence-volume-claim
+          persistentVolumeClaim:
+            claimName: session-persistent-volume-claim
   selector:
     matchLabels:
       app: news-system

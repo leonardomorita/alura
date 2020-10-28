@@ -11,5 +11,5 @@ spec:
           name: second-pv
   volumes:
     name: second-pv
-    persistenceVolumeClaim: 
-      claimName: persistence-volume-claim-2
+    persistentVolumeClaim: 
+      claimName: persistent-volume-claim-2

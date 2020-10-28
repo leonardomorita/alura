@@ -1,7 +1,7 @@
 apiVersion: v1
-kind: PersistenceVolumeClaim
+kind: PersistentVolumeClaim
 metadata:
-  name: persistence-volume-claim-2
+  name: persistent-volume-claim-2
 spec:
   accessMode:
     - ReadWriteOnce

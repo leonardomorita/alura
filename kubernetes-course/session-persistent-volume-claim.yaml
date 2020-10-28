@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistenceVolumeClaim
 metadata:
-  name: session-persistence-volume-claim
+  name: session-persistent-volume-claim
 spec:
   accessModes:
     - ReadWriteOnce
