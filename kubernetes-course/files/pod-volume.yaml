@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-volume
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /volume-container
+          name: first-volume
+    - name: jenkins-container
+      image: jenkins:alpine
+      volumeMounts:
+        - mountPath: /volume-container
+          name: first-volume
+  volumes:
+    - name: first-volume
+      hostPath:
+        # Usar no 'minikube'
+          # path: /home/first-volume
+        # Docker for PC
+        path: /Users/leonardomorita/first-volume
+        type: Directory
