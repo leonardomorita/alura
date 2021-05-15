@@ -1,0 +1,8 @@
+- Programação Reativa
+  A programação reativa reage conforme for recebendo eventos, fazendo atualização na página do usuário de forma dinâmica, assim ter uma aplicação em 'tempo real', sem precisar que o usuário recarregue a página toda vez que quiser ver um dado novo ou atualizado na tela.
+
+- Programação Assíncrona
+  A programação assíncrona faz com que um processo longo não trave outros processos que estam na fila, esperando a ser processados. Assim, quando a aplicação web faz alguma tarefa que precisse mais tempo para ser totalmente processado, ele não vai ficar esperando, ou seja, a tela do usuário não vai ficar travado, e vai processar as outras tarefas que estam na fila. Com isso, o processador não vai ficar ocioso, pois não vai ficar esperando um tempo longo para que a tarefa em específica termine a sua execução.
+
+- WebSocket
+  O propósito de WebSockets é fornecer de forma simples um método de comunicação em tempo real entre clientes e servidores.
