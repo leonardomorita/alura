@@ -1,15 +1,26 @@
-import { Cliente } from "./Cliente";
+import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente {
-    agencia;
+    static numeroContas = 0;
 
+    agencia;
     _cliente;
     _saldo = 0;
+
+    constructor(agencia, cliente) {
+        this.agencia = agencia;
+        this.cliente = cliente;
+        ContaCorrente.numeroContas++;
+    }
 
     set cliente(objetoCliente) {
         if (objetoCliente instanceof Cliente) {
             this._cliente = objetoCliente;
         }
+    }
+
+    get cliente() {
+        return this._cliente;
     }
 
     sacar(valor) {
@@ -31,5 +42,9 @@ export class ContaCorrente {
         if (!valorSacado) return;
 
         destino.depositar(valorSacado);
+    }
+
+    get saldo() {
+        return this._saldo;
     }
 }
