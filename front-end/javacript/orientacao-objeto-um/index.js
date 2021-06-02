@@ -8,6 +8,6 @@ const contaCorrenteUm = new ContaCorrente('11222', clienteUm);
 const clienteDois = new Cliente('Amanda', '111.222.333-55');
 const contaPoupancaDois = new ContaPoupanca(100, clienteDois, '11222');
 
-console.log(clienteUm, contaCorrenteUm);
-console.log(clienteDois, contaPoupancaDois);
-console.log(ContaCorrente.numeroContas);
+contaCorrenteUm.depositar(100);
+contaCorrenteUm.sacar(50);
+console.log(contaCorrenteUm);
