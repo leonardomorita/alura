@@ -2,6 +2,10 @@ import { Cliente } from "./Cliente.js";
 
 export class Conta {
     constructor(saldoInicial, cliente, agencia) {
+        if (this.constructor == Conta) {
+            throw new Error('Essa classe é abstrata');
+        }
+
         this._saldo = saldoInicial;
         this._cliente = cliente;
         this._agencia = agencia;
@@ -18,7 +22,7 @@ export class Conta {
     }
 
     sacar(valor) {
-        return this._sacar(valor, 1);
+        throw new Error('Esse método é abstrato');
     }
 
     _sacar(valor, taxa) {
