@@ -1,19 +1,18 @@
 import React, { Component } from "react";
-import Nota from "./Nota";
+import Nota from "../Nota";
+import "./lista-notas.css";
 
 export default class ListaDeNotas extends Component {
   render() {
     return (
-      <ul>
-        {Array.of("1", "2", "3").map(categoria => {
+      <ul className="lista-notas">
+        {Array.of("1", "2", "3").map((categoria, index) => {
           return (
-            <li>
-              <div>{categoria}</div>
+            <li className="lista-notas_item" key={index}>
               <Nota />
             </li>
           );
         })}
-
       </ul>
     );
   }
