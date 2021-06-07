@@ -19,13 +19,22 @@ export default class App extends Component {
     this.setState({
       notas: [...this.state.notas, nota]
     });
-  } 
+  }
+
+  deletarNota(indice) {
+    let copiaNotas = this.state.notas;
+    copiaNotas.splice(indice, 1);
+    
+    this.setState({
+      notas: copiaNotas
+    });
+  }
 
   render() {
     return (
       <section className="conteudo">
         <FormularioCadastro criarNota={this.criarNota.bind(this)} />
-        <ListaDeNotas notas={this.state.notas} />
+        <ListaDeNotas notas={this.state.notas} deletarNota={this.deletarNota.bind(this)} />
       </section>
     );
   }

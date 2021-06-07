@@ -9,7 +9,7 @@ export default class ListaDeNotas extends Component {
         {this.props.notas.map((nota, index) => {
           return (
             <li className="lista-notas_item" key={index}>
-              <Nota nota={nota} />
+              <Nota nota={nota} deletarNota={this.props.deletarNota} indice={index} />
             </li>
           );
         })}
