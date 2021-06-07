@@ -4,8 +4,9 @@ import "./formulario-cadastro.css";
 export default class FormularioCadastro extends Component {
   constructor(props) {
     super(props);
+    this.categoria = "";
     this.titulo = "";
-    this.texto = "";
+    this.texto = "Sem Categoria";
   }
 
   _handleMudancaTitulo(evento) {
@@ -18,11 +19,16 @@ export default class FormularioCadastro extends Component {
     this.texto = evento.target.value;
   }
 
+  _handleMudancaCategoria(evento) {
+    evento.stopPropagation();
+    this.categoria = evento.target.value;
+  }
+
   _criarNota(evento) {
     evento.preventDefault();
     evento.stopPropagation();
 
-    this.props.criarNota(this.titulo, this.texto);
+    this.props.criarNota(this.categoria, this.titulo, this.texto);
   }
 
   render() {
@@ -30,6 +36,15 @@ export default class FormularioCadastro extends Component {
       <form className="form-cadastro"
         onSubmit={this._criarNota.bind(this)}
       >
+        <select className="form-cadastro_input" onChange={this._handleMudancaCategoria.bind(this)}>
+          <option>Sem Categoria</option>
+          {this.props.categorias.map((categoria, indice) => {
+            return (
+              <option key={indice} value={categoria}>{categoria}</option>
+            );
+          })}
+        </select>
+
         <input
           type="text"
           placeholder="Digite o título da nota"

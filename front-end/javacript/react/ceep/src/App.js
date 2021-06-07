@@ -14,8 +14,8 @@ export default class App extends Component {
     };
   }
 
-  criarNota(titulo, texto) {
-    const nota = {titulo, texto};
+  criarNota(categoria, titulo, texto) {
+    const nota = {categoria, titulo, texto};
 
     // Chamar o método 'render' novamente para atualizar a variável 'notas'
     this.setState({
@@ -41,7 +41,7 @@ export default class App extends Component {
   render() {
     return (
       <section className="conteudo">
-        <FormularioCadastro criarNota={this.criarNota.bind(this)} />
+        <FormularioCadastro criarNota={this.criarNota.bind(this)} categorias={this.state.categorias} />
 
         <main className="conteudo-principal">
           <ListaDeCategorias categorias={this.state.categorias} criarCategoria={this.criarCategoria.bind(this)} />
