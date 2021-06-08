@@ -45,11 +45,11 @@ export default class App extends Component {
   render() {
     return (
       <section className="conteudo">
-        <FormularioCadastro criarNota={this.notas.criarNota} categorias={this.categorias.categorias} />
+        <FormularioCadastro criarNota={this.notas.criarNota.bind(this.notas)} categorias={this.categorias} />
 
         <main className="conteudo-principal">
-          <ListaDeCategorias categorias={this.categorias.categorias} criarCategoria={this.categorias.criarCategoria} />
-          <ListaDeNotas notas={this.notas.notas} deletarNota={this.notas.deletarNota} />
+          <ListaDeCategorias categorias={this.categorias} criarCategoria={this.categorias.criarCategoria.bind(this.categorias)} />
+          <ListaDeNotas notas={this.notas} deletarNota={this.notas.deletarNota.bind(this.notas)} />
         </main>
       </section>
     );

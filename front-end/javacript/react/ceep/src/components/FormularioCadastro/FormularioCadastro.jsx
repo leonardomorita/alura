@@ -4,9 +4,27 @@ import "./formulario-cadastro.css";
 export default class FormularioCadastro extends Component {
   constructor(props) {
     super(props);
-    this.categoria = "";
+    this.categoria = "Sem Categoria";
     this.titulo = "";
-    this.texto = "Sem Categoria";
+    this.texto = "";
+    this.state = {
+      categorias: []
+    };
+    this._novasCategorias = this._novasCategorias.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.categorias.inscrever(this._novasCategorias);
+  }
+
+  componentWillUnmount() {
+    this.props.categorias.desinscrever(this._novasCategorias);
+  }
+
+  _novasCategorias(categorias) {
+    this.setState({
+      categorias: categorias
+    });
   }
 
   _handleMudancaTitulo(evento) {
@@ -38,7 +56,7 @@ export default class FormularioCadastro extends Component {
       >
         <select className="form-cadastro_input" onChange={this._handleMudancaCategoria.bind(this)}>
           <option>Sem Categoria</option>
-          {this.props.categorias.map((categoria, indice) => {
+          {this.state.categorias.map((categoria, indice) => {
             return (
               <option key={indice} value={categoria}>{categoria}</option>
             );
